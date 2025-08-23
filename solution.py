@@ -1,18 +1,10 @@
-from temp import kapa
 import sys,io
 import json 
+sys.path.append("/tmp")
+from temp import kapa
 
 
 def run_solution_please():
-#     test_cases = {
-#     "public": [
-#         { "input": [[238,3298], [366, 8383]], "expected_output": True },
-#         { "input": [2, [111, 222]], "expected_output": False },
-#     ],
-#     "private": [
-#         { "input": [3, [10, 20]], "expected_output": True }
-#     ]
-# } 
     test_cases = json.loads(sys.argv[1])
     sol = []
     
@@ -29,7 +21,6 @@ def run_solution_please():
     
     print(json.dumps(sol))
 
-    
     
     
 
@@ -60,16 +51,3 @@ def run_each_case(input,expected_out):
 
 
 run_solution_please()
-
-
-
-
-# {
-#   public: [
-#     { input: '488', expected_output: '899' },
-#     { input: [1,[366,8383]], expected_output: true } },
-#     { input: [1,[366,8383]], expected_output: true } },
-
-#   ],
-#   hidden: [ { input: [1,[366,8383]], expected_output: true } ]
-# }
