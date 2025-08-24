@@ -11,7 +11,7 @@ def lambda_handler(event,context):
         resource.setrlimit(resource.RLIMIT_DATA, (soft, hard))  
     
     try:
-        req_body = event
+        req_body = event["body"]
         code = req_body["code"]
         test_cases = req_body["test_cases"]
         test_cases_str = json.dumps(test_cases)
