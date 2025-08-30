@@ -8,15 +8,17 @@ def lambda_handler(event,context):
     def set_memory_limit():
         soft, hard = 50 * 1024 * 1024, 50 * 1024 * 1024  
         resource.setrlimit(resource.RLIMIT_AS, (soft, hard))  
-        resource.setrlimit(resource.RLIMIT_DATA, (soft, hard))  
+        resource.setrlimit(resource.RLIMIT_DATA, (soft, hard)) 
+
+    print(event) 
     
     try:
-        req_body = event["body"]
+        req_body = json.loads(event["body"])
         code = req_body["code"]
         test_cases = req_body["test_cases"]
         test_cases_str = json.dumps(test_cases)
     except Exception as e:
-        return {"error":"malformed"}
+        return {"error":"malformed req."}
 
     with open("/tmp/temp.py","w") as file:
         file.write(code)

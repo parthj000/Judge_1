@@ -13,7 +13,7 @@ def run_solution_please():
         if(response[0]=="solved"):
             sol.append(response[1])
     
-    for case in test_cases["private"]:
+    for case in test_cases["hidden"]:
         response = run_each_case(case["input"],case["expected_output"])
         if(response[0]=="solved"):
             sol.append(response[1])
@@ -30,10 +30,10 @@ def run_each_case(input,expected_out):
         sys.stdout = buffer
         correct=0
         out = kapa(*input)
-        if(out==expected_out): correct=1
+        if(expected_out==[out]): correct=1
         res={
             "Input":input,
-            "Output":out,
+            "Output":[out],
             "Expected_out":expected_out,
             "correct":correct,
             "user_prints":buffer.getvalue()
